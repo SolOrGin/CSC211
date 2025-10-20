@@ -4,7 +4,10 @@
 
 class Point {
 public:
-    
+    bool operator==(const Point& other) const;
+
+    Point(const Point& other);
+
     void print() const;
     void set(int x, int y);
     int getX() const;

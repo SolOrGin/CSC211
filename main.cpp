@@ -66,6 +66,57 @@ int main(int argc, char* argv[]) {
     world.initGrid();
 
 
+    Robot rTest1;
+    rTest1.init();
+
+    Robot rTest2 = rTest1;
+
+    ++rTest2;
+    ++rTest2;
+
+    outputFile << " - - - OP Overloading Testing - - - " << std::endl;
+    outputFile << "R1 Location: ";
+    rTest1.getLocation().print();
+    outputFile << std::endl;
+
+    outputFile << "R2 Location: ";
+    rTest2.getLocation().print();
+    outputFile << std::endl;
+
+    if (rTest1 == rTest2) {
+        outputFile << "Robots are at same location, test failed" << std::endl;
+    }
+    else{
+        outputFile << "Robots are at different location! Test passed" << std::endl;
+    }
+
+    float distance = rTest2 - rTest1;
+    outputFile <<"Testing distance: " << distance << std::endl;
+
+    if (++rTest1){
+        outputFile << "Test successful ++: R1 moves forward to: ";
+        rTest1.getLocation().print();
+        outputFile << std::endl;
+    }
+
+    //need to make it face the correct way first
+    rTest2.setOrientation(Robot::WEST);
+    if (--rTest2){
+        outputFile << "Test successful --: R2 moves backwards to: ";
+        rTest2.getLocation().print();
+        outputFile << std::endl;
+    }
+
+    //should be the same location now
+    if (rTest1 == rTest2){
+        outputFile << "Test passed: Robots are at the same spot (1,0)" << std::endl;
+    }
+    else{
+        outPutFile << "Test failed: Robots should be together but are not" << std::endl;
+    }
+    outputFile << "- - - - - - - - - - - - - - - - - - - - -" << std::endl;
+
+
     outputFile<< "* * ** Player Control ** * *" << std::endl;
     outputFile << "     North: n South: s" << std::endl;
     outputFile << "       East: e West: w" << std::endl;

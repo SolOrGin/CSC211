@@ -4,6 +4,19 @@
 
 using namespace std;
 
+Point::Point(const Point& other){
+x = other.x;
+y = other.y;
+}
+
+bool Point::operator==(const Point& other) const{
+return (x == other.x && y == other.y);
+}
+
+
+
+
+
 void Point::set(int x, int y) {
     this->x = x;
     this->y = y;

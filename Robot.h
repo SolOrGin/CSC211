@@ -21,7 +21,11 @@ public:
     bool zig();
     Point getLocation() const;
     
-
+    bool operator++();
+    bool operator--();
+    float operator-(const Robot& other) const;
+    bool opperator==(const Robot& other) const;
+    bool reverse();
 
 private:
     Point location;
